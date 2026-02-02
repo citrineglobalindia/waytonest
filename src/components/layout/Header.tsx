@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -38,8 +39,8 @@ export const Header = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "glass-strong py-3 shadow-elevated"
-            : "bg-transparent py-5"
+            ? "glass-strong py-2 shadow-elevated"
+            : "bg-transparent py-4"
         }`}
       >
         <div className="container mx-auto px-4 lg:px-8">
@@ -48,21 +49,13 @@ export const Header = () => {
             <Link to="/" className="relative z-10">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="flex items-center gap-2"
+                className="flex items-center"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-glow-sm">
-                  <span className="text-primary-foreground font-display font-bold text-xl">
-                    W
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-display text-xl font-semibold text-foreground">
-                    Way to Nest
-                  </span>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                    Luxury Properties
-                  </span>
-                </div>
+                <img 
+                  src={logo} 
+                  alt="Way to Nest" 
+                  className="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_0_10px_rgba(250,204,21,0.3)]"
+                />
               </motion.div>
             </Link>
 
@@ -133,6 +126,19 @@ export const Header = () => {
           >
             <div className="absolute inset-0 bg-background/95 backdrop-blur-xl" />
             <nav className="relative h-full flex flex-col items-center justify-center gap-6 p-8">
+              {/* Logo in mobile menu */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mb-4"
+              >
+                <img 
+                  src={logo} 
+                  alt="Way to Nest" 
+                  className="h-20 w-auto object-contain"
+                />
+              </motion.div>
+              
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}

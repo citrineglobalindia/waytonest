@@ -11,6 +11,7 @@ import {
   trackEvent,
   getCookie
 } from "@/lib/marketing";
+import logo from "@/assets/logo.png";
 
 interface AutoLeadPopupProps {
   delay?: number;
@@ -150,8 +151,12 @@ export const AutoLeadPopup = ({ delay = 15000, exitIntent = true }: AutoLeadPopu
                     >
                       {/* Header - Centered */}
                       <div className="text-center mb-6">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center">
-                          <Gift className="w-8 h-8 text-primary" />
+                        <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                          <img 
+                            src={logo} 
+                            alt="Way to Nest" 
+                            className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.4)]"
+                          />
                         </div>
                         
                         <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-2">
