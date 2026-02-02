@@ -231,7 +231,7 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
+              {/* Google Maps Embed */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -239,13 +239,17 @@ const Contact = () => {
                 viewport={{ once: true }}
                 className="mt-8 aspect-video rounded-xl overflow-hidden border border-border/50"
               >
-                <div className="w-full h-full bg-secondary flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
-                    <p className="text-muted-foreground">Interactive Map</p>
-                    <p className="text-sm text-muted-foreground/70">Coming Soon</p>
-                  </div>
-                </div>
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.409014237926!2d77.5440002!3d12.8814006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15ecbcdf7d9f%3A0xf00d48cf0911134c!2sWay%20To%20Nest%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1770026193240!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Way to Nest Location"
+                  className="w-full h-full"
+                />
               </motion.div>
             </motion.div>
           </div>
