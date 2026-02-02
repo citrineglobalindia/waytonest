@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { PropertyCard } from "@/components/properties/PropertyCard";
 import { LeadPopup } from "@/components/forms/LeadPopup";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
+import { PartnersSection } from "@/components/sections/PartnersSection";
 import { properties, testimonials } from "@/data/mockData";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-luxury.jpg";
@@ -157,6 +158,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Our Association / Partners */}
+      <PartnersSection />
 
       {/* Featured Properties */}
       <section className="py-20 lg:py-24">
