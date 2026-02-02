@@ -23,10 +23,10 @@
     --popover: 220 18% 6%;
     --popover-foreground: 60 10% 95%;
 
-    /* Primary - Neon Green */
-    --primary: 150 100% 50%;
+    /* Primary - Golden Yellow */
+    --primary: 45 100% 50%;
     --primary-foreground: 220 20% 4%;
-    --primary-glow: 150 100% 50%;
+    --primary-glow: 45 100% 50%;
 
     /* Secondary - Subtle dark surface */
     --secondary: 220 15% 12%;
@@ -36,8 +36,8 @@
     --muted: 220 12% 15%;
     --muted-foreground: 220 10% 55%;
 
-    /* Accent - Softer green variant */
-    --accent: 150 80% 45%;
+    /* Accent - Softer yellow/gold variant */
+    --accent: 50 90% 45%;
     --accent-foreground: 220 20% 4%;
 
     /* Destructive */
@@ -55,7 +55,7 @@
     /* Sidebar (if needed) */
     --sidebar-background: 220 18% 6%;
     --sidebar-foreground: 60 10% 90%;
-    --sidebar-primary: 150 100% 50%;
+    --sidebar-primary: 45 100% 50%;
     --sidebar-primary-foreground: 220 20% 4%;
     --sidebar-accent: 220 15% 12%;
     --sidebar-accent-foreground: 60 10% 90%;
@@ -65,12 +65,12 @@
     /* Custom tokens for luxury effects */
     --gradient-dark: linear-gradient(180deg, hsl(220 20% 4%) 0%, hsl(220 18% 8%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(220 15% 10%) 0%, hsl(220 18% 6%) 100%);
-    --gradient-glow: linear-gradient(135deg, hsl(150 100% 50% / 0.2) 0%, transparent 50%);
-    --gradient-hero: radial-gradient(ellipse at 50% 0%, hsl(150 100% 50% / 0.15) 0%, transparent 50%);
+    --gradient-glow: linear-gradient(135deg, hsl(45 100% 50% / 0.2) 0%, transparent 50%);
+    --gradient-hero: radial-gradient(ellipse at 50% 0%, hsl(45 100% 50% / 0.15) 0%, transparent 50%);
     
-    --shadow-glow: 0 0 30px hsl(150 100% 50% / 0.3);
-    --shadow-glow-sm: 0 0 15px hsl(150 100% 50% / 0.2);
-    --shadow-glow-lg: 0 0 60px hsl(150 100% 50% / 0.4);
+    --shadow-glow: 0 0 30px hsl(45 100% 50% / 0.3);
+    --shadow-glow-sm: 0 0 15px hsl(45 100% 50% / 0.2);
+    --shadow-glow-lg: 0 0 60px hsl(45 100% 50% / 0.4);
     --shadow-card: 0 4px 30px hsl(0 0% 0% / 0.3);
     --shadow-elevated: 0 20px 60px hsl(0 0% 0% / 0.5);
 
@@ -284,7 +284,7 @@
 
   .text-gradient-primary {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(150 80% 60%));
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(50 90% 60%));
   }
 
   /* Backdrop blur variants */
