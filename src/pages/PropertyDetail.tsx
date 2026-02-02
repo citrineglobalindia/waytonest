@@ -8,7 +8,8 @@ import {
   MapPin, 
   Check,
   Phone,
-  Share2
+  Share2,
+  Building2
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -16,26 +17,79 @@ import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
 import { LeadPopup } from "@/components/forms/LeadPopup";
 import { PropertyCard } from "@/components/properties/PropertyCard";
 import { Button } from "@/components/ui/button";
-import { properties } from "@/data/mockData";
+import { useProperty, useProperties } from "@/hooks/useProperties";
+import { properties as mockProperties } from "@/data/mockData";
 import { useState } from "react";
 
 const PropertyDetail = () => {
   const { id } = useParams();
   const [isLeadPopupOpen, setIsLeadPopupOpen] = useState(false);
 
-  const property = properties.find((p) => p.id === id);
-  const relatedProperties = properties.filter((p) => p.id !== id).slice(0, 3);
+  const { data: dbProperty, isLoading } = useProperty(id || "");
+  const { data: dbProperties } = useProperties();
+
+  // Build property from DB or fallback to mock
+  const property = dbProperty 
+    ? {
+        id: dbProperty.id,
+        title: dbProperty.title,
+        location: dbProperty.location,
+        price: dbProperty.price,
+        bedrooms: dbProperty.bedrooms,
+        bathrooms: dbProperty.bathrooms,
+        area: dbProperty.area,
+        image: dbProperty.image_url || '',
+        featured: dbProperty.featured || false,
+        type: dbProperty.type,
+        description: dbProperty.description || undefined,
+        features: dbProperty.features || undefined,
+      }
+    : mockProperties.find((p) => p.id === id);
+
+  const allProperties = dbProperties && dbProperties.length > 0 
+    ? dbProperties.map(p => ({
+        id: p.id,
+        title: p.title,
+        location: p.location,
+        price: p.price,
+        bedrooms: p.bedrooms,
+        bathrooms: p.bathrooms,
+        area: p.area,
+        image: p.image_url || '',
+        featured: p.featured || false,
+        type: p.type,
+        description: p.description || undefined,
+        features: p.features || undefined,
+      }))
+    : mockProperties;
+
+  const relatedProperties = allProperties.filter((p) => p.id !== id).slice(0, 3);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="pt-32 flex items-center justify-center">
+          <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+        </div>
+      </div>
+    );
+  }
 
   if (!property) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="font-display text-3xl font-bold text-foreground mb-4">
-            Property Not Found
-          </h1>
-          <Button asChild>
-            <Link to="/properties">Back to Properties</Link>
-          </Button>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="pt-32 flex items-center justify-center">
+          <div className="text-center">
+            <Building2 className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
+            <h1 className="font-display text-3xl font-bold text-foreground mb-4">
+              Property Not Found
+            </h1>
+            <Button asChild>
+              <Link to="/properties">Back to Properties</Link>
+            </Button>
+          </div>
         </div>
       </div>
     );
@@ -48,11 +102,17 @@ const PropertyDetail = () => {
       {/* Hero Image */}
       <section className="pt-20 relative">
         <div className="h-[60vh] lg:h-[70vh] relative">
-          <img
-            src={property.image}
-            alt={property.title}
-            className="w-full h-full object-cover"
-          />
+          {property.image ? (
+            <img
+              src={property.image}
+              alt={property.title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-secondary flex items-center justify-center">
+              <Building2 className="w-24 h-24 text-muted-foreground" />
+            </div>
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
         </div>
 
@@ -127,12 +187,12 @@ const PropertyDetail = () => {
                     Description
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    {property.description}
+                    {property.description || "No description available."}
                   </p>
                 </div>
 
                 {/* Amenities */}
-                {property.features && (
+                {property.features && property.features.length > 0 && (
                   <div>
                     <h3 className="font-display text-xl font-semibold text-foreground mb-4">
                       Key Features
@@ -195,11 +255,11 @@ const PropertyDetail = () => {
                     Need immediate assistance?
                   </p>
                   <a
-                    href="tel:+971501234567"
+                    href="tel:+919739612117"
                     className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
                   >
                     <Phone className="w-4 h-4" />
-                    +971 50 123 4567
+                    +91 97396 12117
                   </a>
                 </div>
               </div>
@@ -238,6 +298,7 @@ const PropertyDetail = () => {
         isOpen={isLeadPopupOpen}
         onClose={() => setIsLeadPopupOpen(false)}
         propertyName={property.title}
+        propertyId={property.id}
       />
     </div>
   );
