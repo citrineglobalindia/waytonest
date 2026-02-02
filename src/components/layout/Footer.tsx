@@ -124,26 +124,35 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  123 Luxury Avenue, Suite 500<br />
-                  Dubai, United Arab Emirates
+                  7, Arneesh Jewel Apartment, 1st Main,<br />
+                  2nd Cross, Billekahalli, BG Road,<br />
+                  Bangalore - 560076
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a 
-                  href="tel:+971501234567" 
-                  className="text-muted-foreground text-sm hover:text-primary transition-colors"
-                >
-                  +971 50 123 4567
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div className="flex flex-col gap-1">
+                  <a 
+                    href="tel:+919739612117" 
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                  >
+                    +91 97396 12117
+                  </a>
+                  <a 
+                    href="tel:+919845290699" 
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                  >
+                    +91 98452 90699
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a 
-                  href="mailto:info@waytonest.com" 
+                  href="mailto:info@waytonest.in" 
                   className="text-muted-foreground text-sm hover:text-primary transition-colors"
                 >
-                  info@waytonest.com
+                  info@waytonest.in
                 </a>
               </li>
             </ul>

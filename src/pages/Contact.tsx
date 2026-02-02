@@ -13,20 +13,20 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    content: "+971 50 123 4567",
-    href: "tel:+971501234567",
+    content: "+91 97396 12117\n+91 98452 90699",
+    href: "tel:+919739612117",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "info@waytonest.com",
-    href: "mailto:info@waytonest.com",
+    content: "info@waytonest.in",
+    href: "mailto:info@waytonest.in",
   },
   {
     icon: MapPin,
     title: "Address",
-    content: "123 Luxury Avenue, Suite 500\nDubai, United Arab Emirates",
-    href: "#",
+    content: "7, Arneesh Jewel Apartment, 1st Main,\n2nd Cross, Billekahalli, BG Road,\nBangalore - 560076",
+    href: "https://maps.google.com/?q=Billekahalli,BG+Road,Bangalore+560076",
   },
   {
     icon: Clock,
