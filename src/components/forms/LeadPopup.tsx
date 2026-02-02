@@ -6,15 +6,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { trackLeadSubmission } from "@/lib/marketing";
+import { useCreateEnquiryLead } from "@/hooks/useLeads";
 import logo from "@/assets/logo.png";
 
 interface LeadPopupProps {
   isOpen: boolean;
   onClose: () => void;
   propertyName?: string;
+  propertyId?: string;
 }
 
-export const LeadPopup = ({ isOpen, onClose, propertyName }: LeadPopupProps) => {
+export const LeadPopup = ({ isOpen, onClose, propertyName, propertyId }: LeadPopupProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,33 +25,46 @@ export const LeadPopup = ({ isOpen, onClose, propertyName }: LeadPopupProps) => 
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  
+  const createEnquiryLead = useCreateEnquiryLead();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    // Track lead submission
-    trackLeadSubmission({
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      source: propertyName ? 'property_enquiry' : 'general_enquiry',
-      page: window.location.pathname,
-    });
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    
-    // Close after success animation
-    setTimeout(() => {
-      toast.success("Thank you! We'll contact you shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      setIsSuccess(false);
-      onClose();
-    }, 1500);
+    try {
+      // Save to database
+      await createEnquiryLead.mutateAsync({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || undefined,
+        message: formData.message || undefined,
+        property_id: propertyId || undefined,
+      });
+      
+      // Track lead submission
+      trackLeadSubmission({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        source: propertyName ? 'property_enquiry' : 'general_enquiry',
+        page: window.location.pathname,
+      });
+      
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      
+      // Close after success animation
+      setTimeout(() => {
+        toast.success("Thank you! We'll contact you shortly.");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        setIsSuccess(false);
+        onClose();
+      }, 1500);
+    } catch (error) {
+      setIsSubmitting(false);
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   const handleClose = () => {

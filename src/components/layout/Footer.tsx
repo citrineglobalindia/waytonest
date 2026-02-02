@@ -180,6 +180,19 @@ export const Footer = () => {
               </Link>
             </div>
           </div>
+          <div className="mt-4 text-center">
+            <p className="text-xs text-muted-foreground/70">
+              Designed and Developed by{" "}
+              <a 
+                href="https://stepstones.in" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
+              >
+                Stepstones
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
