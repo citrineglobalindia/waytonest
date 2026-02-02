@@ -15,14 +15,13 @@ const authSchema = z.object({
 });
 
 const AdminAuth = () => {
-  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
   
-  const { signIn, signUp } = useAuth();
+  const { signIn } = useAuth();
   const navigate = useNavigate();
 
   const validateForm = () => {
@@ -51,29 +50,16 @@ const AdminAuth = () => {
     setIsLoading(true);
 
     try {
-      if (isLogin) {
-        const { error } = await signIn(email, password);
-        if (error) {
-          if (error.message.includes("Invalid login credentials")) {
-            toast.error("Invalid email or password");
-          } else {
-            toast.error(error.message);
-          }
+      const { error } = await signIn(email, password);
+      if (error) {
+        if (error.message.includes("Invalid login credentials")) {
+          toast.error("Invalid email or password");
         } else {
-          toast.success("Welcome back!");
-          navigate("/admin");
+          toast.error(error.message);
         }
       } else {
-        const { error } = await signUp(email, password);
-        if (error) {
-          if (error.message.includes("already registered")) {
-            toast.error("This email is already registered. Please sign in instead.");
-          } else {
-            toast.error(error.message);
-          }
-        } else {
-          toast.success("Account created! Please check your email to verify your account.");
-        }
+        toast.success("Welcome back!");
+        navigate("/admin");
       }
     } catch (error) {
       toast.error("An unexpected error occurred. Please try again.");
@@ -101,12 +87,10 @@ const AdminAuth = () => {
               className="h-16 mx-auto mb-4"
             />
             <h1 className="font-display text-2xl font-bold text-foreground">
-              {isLogin ? "Admin Login" : "Create Account"}
+              Admin Login
             </h1>
             <p className="text-muted-foreground text-sm mt-2">
-              {isLogin 
-                ? "Sign in to access the admin panel" 
-                : "Create an admin account"}
+              Sign in to access the admin panel
             </p>
           </div>
 
@@ -161,31 +145,16 @@ const AdminAuth = () => {
               {isLoading ? (
                 <span className="flex items-center gap-2">
                   <span className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                  {isLogin ? "Signing in..." : "Creating account..."}
+                  Signing in...
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
-                  {isLogin ? "Sign In" : "Create Account"}
+                  Sign In
                   <ArrowRight className="w-5 h-5" />
                 </span>
               )}
             </Button>
           </form>
-
-          {/* Toggle */}
-          <div className="mt-6 text-center">
-            <button
-              onClick={() => {
-                setIsLogin(!isLogin);
-                setErrors({});
-              }}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              {isLogin 
-                ? "Don't have an account? Sign up" 
-                : "Already have an account? Sign in"}
-            </button>
-          </div>
         </div>
       </motion.div>
     </div>
