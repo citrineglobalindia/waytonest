@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LeadPopup } from "@/components/forms/LeadPopup";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -14,9 +15,12 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
+const PHONE_NUMBER = "+971501234567";
+
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLeadPopupOpen, setIsLeadPopupOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -88,15 +92,42 @@ export const Header = () => {
               ))}
             </nav>
 
-            {/* CTA Button & Mobile Toggle */}
-            <div className="flex items-center gap-4">
+            {/* CTA Buttons & Mobile Toggle */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Call Now Button */}
+              <Button
+                variant="outline"
+                size="sm"
+                asChild
+                className="hidden sm:flex items-center gap-2"
+              >
+                <a href={`tel:${PHONE_NUMBER}`}>
+                  <Phone className="w-4 h-4" />
+                  <span className="hidden lg:inline">Call Now</span>
+                </a>
+              </Button>
+
+              {/* Enquire Now Button - Opens Popup */}
               <Button
                 variant="hero"
                 size="sm"
+                onClick={() => setIsLeadPopupOpen(true)}
                 className="hidden md:flex items-center gap-2"
               >
-                <Phone className="w-4 h-4" />
+                <MessageSquare className="w-4 h-4" />
                 <span>Enquire Now</span>
+              </Button>
+
+              {/* Mobile Call Button */}
+              <Button
+                variant="outline"
+                size="icon"
+                asChild
+                className="md:hidden w-9 h-9"
+              >
+                <a href={`tel:${PHONE_NUMBER}`}>
+                  <Phone className="w-4 h-4" />
+                </a>
               </Button>
 
               <button
@@ -158,21 +189,42 @@ export const Header = () => {
                   </Link>
                 </motion.div>
               ))}
+              
+              {/* Mobile CTA Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.1 }}
-                className="mt-6"
+                className="mt-6 flex flex-col gap-3"
               >
-                <Button variant="hero" size="lg">
-                  <Phone className="w-5 h-5" />
+                <Button 
+                  variant="hero" 
+                  size="lg"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsLeadPopupOpen(true);
+                  }}
+                >
+                  <MessageSquare className="w-5 h-5" />
                   <span>Enquire Now</span>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <a href={`tel:${PHONE_NUMBER}`}>
+                    <Phone className="w-5 h-5" />
+                    <span>Call Now</span>
+                  </a>
                 </Button>
               </motion.div>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Lead Popup */}
+      <LeadPopup 
+        isOpen={isLeadPopupOpen} 
+        onClose={() => setIsLeadPopupOpen(false)} 
+      />
     </>
   );
 };
