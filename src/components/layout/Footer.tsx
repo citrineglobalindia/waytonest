@@ -10,6 +10,7 @@ import {
   Linkedin,
   ArrowUpRight
 } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const quickLinks = [
   { name: "Properties", path: "/properties" },
@@ -45,21 +46,11 @@ export const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
-              <div className="flex items-center gap-2">
-                <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center shadow-glow-sm">
-                  <span className="text-primary-foreground font-display font-bold text-2xl">
-                    W
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-display text-2xl font-semibold text-foreground">
-                    Way to Nest
-                  </span>
-                  <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    Luxury Properties
-                  </span>
-                </div>
-              </div>
+              <img 
+                src={logo} 
+                alt="Way to Nest" 
+                className="h-16 w-auto object-contain drop-shadow-[0_0_10px_rgba(250,204,21,0.3)]"
+              />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               Discover exceptional properties that redefine luxury living. 
@@ -163,7 +154,7 @@ export const Footer = () => {
         <div className="mt-16 pt-8 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Way to Nest. All rights reserved.
+              © {new Date().getFullYear()} Way to Nest Private Limited. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link 
