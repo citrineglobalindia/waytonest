@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { trackLeadSubmission, trackEvent } from "@/lib/marketing";
 
 interface LeadPopupProps {
   isOpen: boolean;
@@ -27,6 +28,15 @@ export const LeadPopup = ({ isOpen, onClose, propertyName }: LeadPopupProps) => 
     
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    // Track lead submission
+    trackLeadSubmission({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      source: propertyName ? 'property_enquiry' : 'general_enquiry',
+      page: window.location.pathname,
+    });
     
     toast.success("Thank you! We'll contact you shortly.");
     setFormData({ name: "", email: "", phone: "", message: "" });
