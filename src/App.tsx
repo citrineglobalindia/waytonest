@@ -11,6 +11,9 @@ import Team from "./pages/Team";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { CookieConsent } from "./components/marketing/CookieConsent";
+import { AutoLeadPopup } from "./components/marketing/AutoLeadPopup";
+import { PageTracker } from "./components/marketing/PageTracker";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/properties" element={<Properties />} />
@@ -30,6 +34,8 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieConsent />
+        <AutoLeadPopup delay={20000} exitIntent={true} />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
