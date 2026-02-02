@@ -20,13 +20,6 @@ const quickLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
-const propertyTypes = [
-  "Luxury Villas",
-  "Penthouses",
-  "Beachfront Homes",
-  "Urban Apartments",
-  "Commercial Spaces",
-];
 
 const socialLinks = [
   { icon: Facebook, href: "#", label: "Facebook" },
@@ -42,7 +35,7 @@ export const Footer = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       
       <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
@@ -93,27 +86,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Property Types */}
-          <div>
-            <h4 className="font-display text-lg font-semibold text-foreground mb-6">
-              Property Types
-            </h4>
-            <ul className="space-y-3">
-              {propertyTypes.map((type) => (
-                <li key={type}>
-                  <Link
-                    to="/properties"
-                    className="group flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      {type}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Contact Info */}
           <div>
