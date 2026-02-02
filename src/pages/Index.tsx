@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play, Building2, Users, Award, Globe } from "lucide-react";
+import { ArrowRight, Play, Building2, Users, Award, Globe, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -8,7 +8,9 @@ import { PropertyCard } from "@/components/properties/PropertyCard";
 import { LeadPopup } from "@/components/forms/LeadPopup";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
 import { PartnersSection } from "@/components/sections/PartnersSection";
-import { properties, testimonials } from "@/data/mockData";
+import { useProperties } from "@/hooks/useProperties";
+import { useTestimonials } from "@/hooks/useTestimonials";
+import { properties as mockProperties, testimonials as mockTestimonials } from "@/data/mockData";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-luxury.jpg";
 
@@ -24,6 +26,38 @@ const Index = () => {
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 500], [0, 150]);
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.3]);
+
+  // Fetch from database with fallback to mock data
+  const { data: dbProperties } = useProperties();
+  const { data: dbTestimonials } = useTestimonials();
+
+  const properties = dbProperties && dbProperties.length > 0
+    ? dbProperties.slice(0, 3).map(p => ({
+        id: p.id,
+        title: p.title,
+        location: p.location,
+        price: p.price,
+        bedrooms: p.bedrooms,
+        bathrooms: p.bathrooms,
+        area: p.area,
+        image: p.image_url || '',
+        featured: p.featured || false,
+        type: p.type,
+        description: p.description || undefined,
+        features: p.features || undefined,
+      }))
+    : mockProperties.slice(0, 3);
+
+  const testimonials = dbTestimonials && dbTestimonials.length > 0
+    ? dbTestimonials.slice(0, 3).map(t => ({
+        id: t.id,
+        name: t.name,
+        role: t.role || '',
+        image: t.image_url || 'https://via.placeholder.com/400',
+        content: t.content,
+        rating: t.rating || 5,
+      }))
+    : mockTestimonials;
 
   return (
     <div className="min-h-screen bg-background">
@@ -185,7 +219,7 @@ const Index = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {properties.slice(0, 3).map((property, index) => (
+            {properties.map((property, index) => (
               <PropertyCard key={property.id} property={property} index={index} />
             ))}
           </div>
@@ -274,7 +308,7 @@ const Index = () => {
             >
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-gradient">
                 <img
-                  src={properties[2].image}
+                  src={properties[2]?.image || mockProperties[2].image}
                   alt="Luxury Property"
                   className="w-full h-full object-cover"
                 />
@@ -341,7 +375,7 @@ const Index = () => {
               >
                 <div className="flex gap-1 mb-6">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <div key={i} className="w-5 h-5 text-primary">★</div>
+                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                   ))}
                 </div>
                 <p className="text-foreground mb-6 leading-relaxed">
