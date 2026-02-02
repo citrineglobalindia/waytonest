@@ -15,7 +15,7 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
-const PHONE_NUMBER = "+971501234567";
+const PHONE_NUMBER = "+919739612117";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
