@@ -183,36 +183,42 @@ export type Database = {
           content: string
           created_at: string
           display_order: number | null
+          google_review_id: string | null
           id: string
           image_url: string | null
           is_active: boolean | null
           name: string
           rating: number | null
           role: string | null
+          source: string
           updated_at: string
         }
         Insert: {
           content: string
           created_at?: string
           display_order?: number | null
+          google_review_id?: string | null
           id?: string
           image_url?: string | null
           is_active?: boolean | null
           name: string
           rating?: number | null
           role?: string | null
+          source?: string
           updated_at?: string
         }
         Update: {
           content?: string
           created_at?: string
           display_order?: number | null
+          google_review_id?: string | null
           id?: string
           image_url?: string | null
           is_active?: boolean | null
           name?: string
           rating?: number | null
           role?: string | null
+          source?: string
           updated_at?: string
         }
         Relationships: []
