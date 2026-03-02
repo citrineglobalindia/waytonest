@@ -112,31 +112,17 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     id: "1",
-    name: "Alexander Sterling",
-    role: "Founder & CEO",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400",
-    bio: "With over 20 years in luxury real estate, Alexander founded Way to Nest to redefine premium property experiences.",
+    name: "Srinivas Prabhu",
+    role: "Co-Founder & Director",
+    image: "/src/assets/team/srinivas-prabhu.jpeg",
+    bio: "Co-Founder & Director of Way To Nest Private Limited, driving the vision of helping clients find their dream homes.",
   },
   {
     id: "2",
-    name: "Sophia Chen",
-    role: "Head of Sales",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
-    bio: "Sophia brings unparalleled expertise in high-net-worth client relations and exclusive property negotiations.",
-  },
-  {
-    id: "3",
-    name: "Marcus Williams",
-    role: "Property Consultant",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
-    bio: "Marcus specializes in waterfront properties and has closed over $500M in luxury transactions.",
-  },
-  {
-    id: "4",
-    name: "Elena Rodriguez",
-    role: "Interior Design Director",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400",
-    bio: "Elena transforms spaces into art, curating bespoke interior solutions for discerning clients.",
+    name: "Sevanth",
+    role: "Co-Founder & Director",
+    image: "/src/assets/team/sevanth.jpeg",
+    bio: "Co-Founder & Director of Way To Nest Private Limited, committed to delivering exceptional real estate services.",
   },
 ];
 

@@ -5,9 +5,16 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
 import { useTeamMembers } from "@/hooks/useTeamMembers";
 import { teamMembers as mockTeamMembers } from "@/data/mockData";
+import srinivasImg from "@/assets/team/srinivas-prabhu.jpeg";
+import sevanthImg from "@/assets/team/sevanth.jpeg";
 
 const Team = () => {
   const { data: dbTeamMembers, isLoading } = useTeamMembers();
+
+  const imageMap: Record<string, string> = {
+    '/src/assets/team/srinivas-prabhu.jpeg': srinivasImg,
+    '/src/assets/team/sevanth.jpeg': sevanthImg,
+  };
   
   // Use database team members if available, otherwise fall back to mock data
   const teamMembers = dbTeamMembers && dbTeamMembers.length > 0
@@ -15,10 +22,13 @@ const Team = () => {
         id: m.id,
         name: m.name,
         role: m.role,
-        image: m.image_url || 'https://via.placeholder.com/400',
+        image: imageMap[m.image_url || ''] || m.image_url || 'https://via.placeholder.com/400',
         bio: m.bio || '',
       }))
-    : mockTeamMembers;
+    : mockTeamMembers.map(m => ({
+        ...m,
+        image: imageMap[m.image] || m.image,
+      }));
 
   return (
     <div className="min-h-screen bg-background">
