@@ -32,7 +32,7 @@ const Index = () => {
   const { data: dbTestimonials } = useTestimonials();
 
   const properties = dbProperties && dbProperties.length > 0
-    ? dbProperties.slice(0, 3).map(p => ({
+    ? dbProperties.slice(0, 4).map(p => ({
         id: p.id,
         title: p.title,
         location: p.location,
