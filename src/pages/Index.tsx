@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-luxury.jpg";
 
 const stats = [
-  { icon: Building2, value: "500+", label: "Properties Sold" },
+  { icon: Building2, value: "1000+", label: "PROPERTIES SOLD" },
   { icon: Users, value: "1,200+", label: "Happy Clients" },
   { icon: Award, value: "15+", label: "Years Experience" },
   { icon: Globe, value: "25+", label: "Global Partners" },
