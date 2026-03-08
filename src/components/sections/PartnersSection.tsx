@@ -1,36 +1,37 @@
 import { motion } from "framer-motion";
 
 // Partner logos
+import sobha from "@/assets/partners/sobha.png";
+import brigade from "@/assets/partners/brigade.png";
+import prestige from "@/assets/partners/prestige.png";
+import salarpuria from "@/assets/partners/salarpuria.png";
+import assetz from "@/assets/partners/assetz.png";
+import lodha from "@/assets/partners/lodha.png";
+import bhartiyaUrban from "@/assets/partners/bhartiya-urban.png";
+import mahindra from "@/assets/partners/mahindra.png";
 import mahaveer from "@/assets/partners/mahaveer.avif";
 import puravankara from "@/assets/partners/puravankara.avif";
-import salarpuria from "@/assets/partners/salarpuria.avif";
 import provident from "@/assets/partners/provident.avif";
-import prestige from "@/assets/partners/prestige.avif";
 import ltGroup from "@/assets/partners/lt-group.avif";
-import bhartiyaUrban from "@/assets/partners/bhartiya-urban.avif";
-import brigade from "@/assets/partners/brigade.avif";
-import sobha from "@/assets/partners/sobha.avif";
-import assetz from "@/assets/partners/assetz.avif";
 
 const partners = [
+  { name: "Sobha", logo: sobha },
+  { name: "Brigade", logo: brigade },
+  { name: "Prestige", logo: prestige },
+  { name: "Salarpuria", logo: salarpuria },
+  { name: "Assetz", logo: assetz },
+  { name: "Lodha", logo: lodha },
+  { name: "Bhartiya Urban", logo: bhartiyaUrban },
+  { name: "Mahindra Lifespaces", logo: mahindra },
   { name: "Mahaveer", logo: mahaveer },
   { name: "Puravankara", logo: puravankara },
-  { name: "Salarpuria", logo: salarpuria },
   { name: "Provident", logo: provident },
-  { name: "Prestige", logo: prestige },
   { name: "L&T Group", logo: ltGroup },
-  { name: "Bhartiya Urban", logo: bhartiyaUrban },
-  { name: "Brigade", logo: brigade },
-  { name: "Sobha", logo: sobha },
-  { name: "Assetz", logo: assetz },
 ];
 
 export const PartnersSection = () => {
   return (
-    <section className="py-16 lg:py-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      
+    <section className="py-16 lg:py-20 relative overflow-hidden bg-white">
       <div className="container mx-auto px-4 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,17 +43,17 @@ export const PartnersSection = () => {
           <span className="inline-block px-4 py-2 mb-4 text-xs uppercase tracking-[0.2em] text-primary border border-primary/30 rounded-full">
             Trusted Partners
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our Association
           </h2>
           <div className="section-divider mb-6" />
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             We collaborate with India's most prestigious developers to bring you exceptional properties
           </p>
         </motion.div>
 
         {/* Logo Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 lg:gap-8">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
@@ -62,7 +63,7 @@ export const PartnersSection = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="relative bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl p-6 h-28 flex items-center justify-center transition-all duration-300 hover:border-primary/30 hover:bg-card/80 hover:shadow-lg hover:shadow-primary/5">
+              <div className="relative bg-gray-50 border border-gray-200 rounded-xl p-6 h-28 flex items-center justify-center transition-all duration-300 hover:border-primary/30 hover:bg-white hover:shadow-lg hover:shadow-primary/5">
                 <img
                   src={partner.logo}
                   alt={partner.name}
