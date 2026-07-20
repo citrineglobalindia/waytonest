@@ -28,6 +28,7 @@ import { CookieConsent } from "./components/marketing/CookieConsent";
 import { AutoLeadPopup } from "./components/marketing/AutoLeadPopup";
 import { PageTracker } from "./components/marketing/PageTracker";
 import { PageLoader } from "./components/ui/LogoLoader";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const App = () => {
           ) : (
             <BrowserRouter>
               <AuthProvider>
+                <ScrollToTop />
                 <PageTracker />
                 <Routes>
                   {/* Public Routes */}
