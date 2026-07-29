@@ -14,6 +14,7 @@ import About from "./pages/About";
 import Team from "./pages/Team";
 import Testimonials from "./pages/Testimonials";
 import Gallery from "./pages/Gallery";
+import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -67,6 +68,7 @@ const App = () => {
                   <Route path="/team" element={<Team />} />
                   <Route path="/testimonials" element={<Testimonials />} />
                   <Route path="/gallery" element={<Gallery />} />
+                  <Route path="/services" element={<Services />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy" element={<PrivacyPolicy />} />
                   <Route path="/terms" element={<TermsOfService />} />
