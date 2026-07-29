@@ -26,8 +26,8 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    content: "7, Arneesh Jewel Apartment, 1st Main,\n2nd Cross, Billekahalli, BG Road,\nBangalore - 560076",
-    href: "https://maps.google.com/?q=Billekahalli,BG+Road,Bangalore+560076",
+    content: "3rd floor, 201, Swamy Vivekananda Rd,\n2nd Cross Rd, Narayana Nagar 1st Block,\nBangalore City Municipal Corporation Layout,\nBengaluru, Karnataka 560062",
+    href: "https://maps.google.com/maps?q=3rd%20floor%2C%20201%2C%20Swamy%20Vivekananda%20Rd%202nd%20Cross%20Rd%2C%20Narayana%20Nagar%201st%20Block%2C%20Bangalore%20City%20Municipal%20Corporation%20Layout%2C%20Bengaluru%2C%20Karnataka%20560062",
   },
   {
     icon: Clock,
@@ -237,7 +237,7 @@ const Contact = () => {
                 className="mt-8 aspect-video rounded-xl overflow-hidden border border-border/50"
               >
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.409014237926!2d77.5440002!3d12.8814006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15ecbcdf7d9f%3A0xf00d48cf0911134c!2sWay%20To%20Nest%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1770026193240!5m2!1sen!2sin" 
+                  src="https://maps.google.com/maps?q=3rd%20floor%2C%20201%2C%20Swamy%20Vivekananda%20Rd%202nd%20Cross%20Rd%2C%20Narayana%20Nagar%201st%20Block%2C%20Bangalore%20City%20Municipal%20Corporation%20Layout%2C%20Bengaluru%2C%20Karnataka%20560062&output=embed" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }}

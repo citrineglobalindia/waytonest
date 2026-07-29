@@ -22,8 +22,8 @@ const quickLinks = [
 
 
 const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578944082753", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/way_to_nest/", label: "Instagram" },
   { icon: Twitter, href: "#", label: "Twitter" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
 ];
@@ -96,9 +96,10 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  7, Arneesh Jewel Apartment, 1st Main,<br />
-                  2nd Cross, Billekahalli, BG Road,<br />
-                  Bangalore - 560076
+                  3rd floor, 201, Swamy Vivekananda Rd,<br />
+                  2nd Cross Rd, Narayana Nagar 1st Block,<br />
+                  Bangalore City Municipal Corporation Layout,<br />
+                  Bengaluru, Karnataka 560062
                 </span>
               </li>
               <li className="flex items-start gap-3">

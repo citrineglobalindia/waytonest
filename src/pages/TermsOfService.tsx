@@ -192,9 +192,10 @@ const TermsOfService = () => {
                 <div className="mt-4 p-6 rounded-xl bg-card border border-border/50">
                   <p className="text-foreground font-medium">Way to Nest Private Limited</p>
                   <p className="text-muted-foreground mt-2">
-                    7, Arneesh Jewel Apartment, 1st Main,<br />
-                    2nd Cross, Billekahalli, BG Road,<br />
-                    Bangalore - 560076
+                    3rd floor, 201, Swamy Vivekananda Rd,<br />
+                    2nd Cross Rd, Narayana Nagar 1st Block,<br />
+                    Bangalore City Municipal Corporation Layout,<br />
+                    Bengaluru, Karnataka 560062
                   </p>
                   <p className="text-muted-foreground mt-2">
                     Email: <a href="mailto:info@waytonest.in" className="text-primary hover:underline">info@waytonest.in</a>
