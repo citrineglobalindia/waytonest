@@ -152,7 +152,7 @@ export const Footer = () => {
             </div>
           </div>
           <div className="mt-4 text-center">
-            <p className="text-xs text-muted-foreground/70">
+            <p className="text-xs text-muted-foreground">
               Designed and Developed by{" "}
               <a 
                 href="https://stepstones.in" 

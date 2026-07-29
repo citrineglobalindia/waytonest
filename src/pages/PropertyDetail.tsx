@@ -11,6 +11,7 @@ import {
   Share2,
   Building2
 } from "lucide-react";
+import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
@@ -97,7 +98,33 @@ const PropertyDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title={`${property.title} - ${property.location} | Way To Nest`}
+        description={
+          (property.description || `${property.title} in ${property.location}: ${property.bedrooms} BHK, ${property.area}, ${property.price}.`)
+            .slice(0, 155)
+        }
+        path={`/properties/${property.id}`}
+        image={property.image}
+        type="product"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "SingleFamilyResidence",
+          name: property.title,
+          description: property.description,
+          image: property.image ? `https://www.waytonest.in${property.image}` : undefined,
+          url: `https://www.waytonest.in/properties/${property.id}`,
+          numberOfBedrooms: property.bedrooms,
+          numberOfBathroomsTotal: property.bathrooms,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: property.location,
+            addressCountry: "IN",
+          },
+        }}
+      />
       <Header />
+
 
       {/* Hero Image */}
       <section className="pt-20 relative">

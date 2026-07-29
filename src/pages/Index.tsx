@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Play, Building2, Users, Award, Globe, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PropertyCard } from "@/components/properties/PropertyCard";
@@ -61,6 +62,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Way To Nest - Premium Real Estate in Bangalore"
+        description="Discover premium apartments, villas and plots in Bangalore with Way To Nest - RERA-compliant advisory, site visits and end-to-end home buying support."
+        path="/"
+      />
       <Header />
 
       {/* Hero Section */}
@@ -72,7 +78,11 @@ const Index = () => {
         >
           <img
             src={heroImage}
-            alt="Luxury Living"
+            alt="Luxury apartment living room overlooking Bangalore skyline"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />

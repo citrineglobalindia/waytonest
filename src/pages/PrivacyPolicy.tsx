@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
@@ -6,6 +7,11 @@ import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Privacy Policy | Way To Nest"
+        description="How Way To Nest Private Limited collects, uses and protects personal information shared through our website and enquiry forms."
+        path="/privacy"
+      />
       <Header />
       
       <main className="pt-24 pb-16">
