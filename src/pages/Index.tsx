@@ -103,7 +103,7 @@ const Index = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <span className="inline-block px-4 py-2 mb-6 text-xs uppercase tracking-[0.2em] text-primary border border-primary/30 rounded-full">
-                  Luxury Real Estate
+                  Your Preferred Channel Partner
                 </span>
               </motion.div>
 
