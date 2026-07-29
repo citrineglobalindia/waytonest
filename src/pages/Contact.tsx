@@ -39,12 +39,16 @@ const contactInfo = [
 ];
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const service = searchParams.get("service");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: "",
+    message: service ? `I would like to know more about: ${service}` : "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   const createContactLead = useCreateContactLead();
