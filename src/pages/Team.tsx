@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Users } from "lucide-react";
+import { Linkedin, Mail, Users, ChevronDown, ChevronUp } from "lucide-react";
 import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -11,6 +12,7 @@ import sevanthImg from "@/assets/team/sevanth.jpeg";
 
 const Team = () => {
   const { data: dbTeamMembers, isLoading } = useTeamMembers();
+  const [expandedBios, setExpandedBios] = useState<Record<string, boolean>>({});
 
   const imageMap: Record<string, string> = {
     '/src/assets/team/srinivas-prabhu.jpeg': srinivasImg,
@@ -30,6 +32,17 @@ const Team = () => {
         ...m,
         image: imageMap[m.image] || m.image,
       }));
+
+  const toggleBio = (id: string) => {
+    setExpandedBios(prev => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const truncateBio = (bio: string, maxLength: number = 180) => {
+    if (bio.length <= maxLength) return bio;
+    const truncated = bio.slice(0, maxLength);
+    const lastSpace = truncated.lastIndexOf(' ');
+    return `${truncated.slice(0, lastSpace > 0 ? lastSpace : maxLength)}...`;
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -98,7 +111,7 @@ const Team = () => {
                   viewport={{ once: true }}
                   className="group"
                 >
-                  <div className="relative overflow-hidden rounded-2xl bg-card border border-border/50 card-hover">
+                  <div className="relative rounded-2xl bg-card border border-border/50 card-hover overflow-visible">
                     {/* Image */}
                     <div className="relative aspect-[3/4] overflow-hidden">
                       <img
@@ -139,9 +152,33 @@ const Team = () => {
                       <p className="text-primary text-sm font-medium mb-3">
                         {member.role}
                       </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {member.bio}
-                      </p>
+                      <div className="text-sm text-muted-foreground leading-relaxed">
+                        <motion.p
+                          initial={false}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {expandedBios[member.id] ? member.bio : truncateBio(member.bio)}
+                        </motion.p>
+                      </div>
+                      {member.bio.length > 180 && (
+                        <button
+                          onClick={() => toggleBio(member.id)}
+                          className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary/80 transition-colors group"
+                          aria-expanded={expandedBios[member.id]}
+                          aria-label={expandedBios[member.id] ? `Read less about ${member.name}` : `Read more about ${member.name}`}
+                        >
+                          {expandedBios[member.id] ? (
+                            <>
+                              Read Less <ChevronUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" aria-hidden="true" />
+                            </>
+                          ) : (
+                            <>
+                              Read More <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
+                            </>
+                          )}
+                        </button>
+                      )}
                     </div>
                   </div>
                 </motion.div>
