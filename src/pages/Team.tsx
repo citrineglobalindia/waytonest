@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin, Mail, Users } from "lucide-react";
+import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
@@ -32,6 +33,11 @@ const Team = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Our Team | Way To Nest Real Estate Bangalore"
+        description="Meet the founders and property advisors behind Way To Nest, guiding buyers through Bangalore real estate with local expertise."
+        path="/team"
+      />
       <Header />
 
       {/* Hero Section */}

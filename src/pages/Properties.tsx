@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Search, SlidersHorizontal, X, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PropertyCard } from "@/components/properties/PropertyCard";
@@ -47,6 +48,11 @@ const Properties = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Properties for Sale in Bangalore | Way To Nest"
+        description="Browse Sobha, Brigade and Assetz apartments, villas and plots in Bangalore. Filter by type, location and budget with Way To Nest."
+        path="/properties"
+      />
       <Header />
 
       {/* Hero Section */}

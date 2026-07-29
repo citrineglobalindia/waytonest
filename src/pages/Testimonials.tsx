@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
@@ -27,6 +28,11 @@ const Testimonials = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Client Reviews & Testimonials | Way To Nest"
+        description="Read verified Google reviews from Way To Nest clients who bought homes in Bangalore - rated 4.9 across 39 reviews."
+        path="/testimonials"
+      />
       <Header />
 
       {/* Hero Section */}

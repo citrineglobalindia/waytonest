@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Target, Heart, Sparkles } from "lucide-react";
+import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
@@ -33,6 +34,11 @@ const values = [
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="About Way To Nest | Bangalore Real Estate Advisors"
+        description="Way To Nest Private Limited, incorporated 12 March 2023 in Bengaluru, helps buyers find RERA-registered homes with transparent advice."
+        path="/about"
+      />
       <Header />
 
       {/* Hero Section */}

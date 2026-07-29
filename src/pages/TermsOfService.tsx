@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
@@ -6,6 +7,11 @@ import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Terms of Service | Way To Nest"
+        description="Terms governing the use of the Way To Nest website, property listings and enquiry services in Bengaluru, Karnataka."
+        path="/terms"
+      />
       <Header />
       
       <main className="pt-24 pb-16">

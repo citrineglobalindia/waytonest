@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
@@ -71,6 +72,28 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Contact Way To Nest | Bangalore Property Enquiries"
+        description="Call +91 97396 12117 or email info@waytonest.in to book a site visit. Way To Nest office in Narayana Nagar, Bengaluru 560062."
+        path="/contact"
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        name: "Way To Nest Private Limited",
+        url: "https://www.waytonest.in/contact",
+        email: "info@waytonest.in",
+        telephone: "+91 97396 12117",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "3rd Floor, 201, Swamy Vivekananda Rd, 2nd Cross Rd, Narayana Nagar 1st Block, BCMC Layout",
+          addressLocality: "Bengaluru",
+          addressRegion: "Karnataka",
+          postalCode: "560062",
+          addressCountry: "IN",
+        },
+        openingHours: "Mo-Sa 09:30-19:00",
+      }}
+      />
       <Header />
 
       {/* Hero Section */}
