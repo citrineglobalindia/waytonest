@@ -67,6 +67,7 @@ const Team = () => {
       {/* Team Grid */}
       <section className="py-20 lg:py-24">
         <div className="container mx-auto px-4 lg:px-8">
+          <h2 className="sr-only">Meet the Way To Nest team</h2>
           {isLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[1, 2, 3, 4].map((i) => (
@@ -83,7 +84,7 @@ const Team = () => {
           ) : teamMembers.length === 0 ? (
             <div className="text-center py-16">
               <Users className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
-              <h3 className="text-xl font-semibold text-foreground mb-2">Team coming soon</h3>
+              <h2 className="text-xl font-semibold text-foreground mb-2">Team coming soon</h2>
               <p className="text-muted-foreground">Our team information will be available shortly.</p>
             </div>
           ) : (
@@ -115,15 +116,17 @@ const Team = () => {
                       >
                         <a
                           href="#"
+                          aria-label={`${member.name} on LinkedIn`}
                           className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground hover:shadow-glow transition-shadow"
                         >
-                          <Linkedin className="w-5 h-5" />
+                          <Linkedin className="w-5 h-5" aria-hidden="true" />
                         </a>
                         <a
                           href="#"
+                          aria-label={`Email ${member.name}`}
                           className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground hover:shadow-glow transition-shadow"
                         >
-                          <Mail className="w-5 h-5" />
+                          <Mail className="w-5 h-5" aria-hidden="true" />
                         </a>
                       </motion.div>
                     </div>

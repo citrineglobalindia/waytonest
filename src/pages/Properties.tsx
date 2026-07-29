@@ -163,6 +163,7 @@ const Properties = () => {
       {/* Properties Grid */}
       <section className="py-16 lg:py-20">
         <div className="container mx-auto px-4 lg:px-8">
+          <h2 className="sr-only">Property listings</h2>
           {isLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -199,9 +200,9 @@ const Properties = () => {
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-secondary flex items-center justify-center">
                 <Building2 className="w-10 h-10 text-muted-foreground" />
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground mb-2">
+              <h2 className="font-display text-2xl font-semibold text-foreground mb-2">
                 No Properties Found
-              </h3>
+              </h2>
               <p className="text-muted-foreground mb-6">
                 Try adjusting your search or filters
               </p>
