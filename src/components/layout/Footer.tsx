@@ -6,8 +6,7 @@ import {
   MapPin, 
   Facebook, 
   Instagram, 
-  Twitter, 
-  Linkedin,
+  Youtube,
   ArrowUpRight
 } from "lucide-react";
 import logo from "@/assets/logo.png";
@@ -24,8 +23,7 @@ const quickLinks = [
 const socialLinks = [
   { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578944082753", label: "Facebook" },
   { icon: Instagram, href: "https://www.instagram.com/way_to_nest/", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Youtube, href: "https://www.youtube.com/channel/UCVDcP3MGJWUuSVHZd_FiI3Q", label: "YouTube" },
 ];
 
 export const Footer = () => {
