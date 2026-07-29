@@ -17,7 +17,7 @@ import heroImage from "@/assets/hero-luxury.jpg";
 const stats = [
   { icon: Building2, value: "1000+", label: "PROPERTIES SOLD" },
   { icon: Users, value: "1,200+", label: "Happy Clients" },
-  { icon: Award, value: "15+", label: "Years Experience" },
+  { icon: Award, value: "2023", label: "Incorporated" },
   { icon: Globe, value: "25+", label: "Global Partners" },
 ];
 
