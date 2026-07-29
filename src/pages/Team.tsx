@@ -169,11 +169,11 @@ const Team = () => {
               for talented individuals to join our growing team.
             </p>
             <a
-              href="mailto:careers@waytonest.in"
+              href="mailto:Hr@waytonest.in"
               className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
             >
               <Mail className="w-5 h-5" />
-              careers@waytonest.in
+              Hr@waytonest.in
             </a>
           </motion.div>
         </div>
