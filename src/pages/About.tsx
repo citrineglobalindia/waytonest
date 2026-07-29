@@ -52,8 +52,9 @@ const About = () => {
               Redefining Luxury Living
             </h1>
             <p className="text-lg text-muted-foreground">
-              For over 15 years, Way to Nest has been the trusted partner for 
-              discerning clients seeking extraordinary properties.
+              Incorporated on 12 March 2023, Way to Nest Private Limited is a 
+              Bengaluru-based real estate advisory trusted by homebuyers and investors.
+
             </p>
           </motion.div>
         </div>
@@ -78,21 +79,23 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Founded in 2009, Way to Nest emerged from a vision to transform 
-                  the luxury real estate experience. What began as a boutique agency 
-                  has evolved into a premier destination for exceptional properties.
+                  Way To Nest Private Limited was incorporated on 12 March 2023 and 
+                  is registered with the Ministry of Corporate Affairs as a private 
+                  limited company headquartered in Bengaluru, Karnataka.
                 </p>
                 <p>
-                  Our team combines decades of industry expertise with an unwavering 
-                  commitment to personalized service. We understand that finding the 
-                  perfect home is more than a transaction—it's a life-changing decision.
+                  Though young as a company, our founders bring years of on-ground 
+                  experience in Bengaluru's residential market. We work across new 
+                  launches, ready-to-move homes, resale and plotted developments with 
+                  leading developers such as Sobha, Brigade, Prestige, Assetz and more.
                 </p>
                 <p>
-                  Today, we proudly serve an elite clientele across the globe, 
-                  offering access to the most exclusive properties and delivering 
-                  experiences that exceed expectations at every turn.
+                  From shortlisting and site visits to negotiation, home loans and 
+                  registration, we handle the entire journey with transparency and 
+                  RERA-compliant guidance — which is why our clients rate us 4.9 on Google.
                 </p>
               </div>
+
             </motion.div>
 
             <motion.div
