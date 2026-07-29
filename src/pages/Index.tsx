@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play, Building2, Users, Award, Globe, Star } from "lucide-react";
+import { ArrowRight, Play, Building2, Users, Award, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
@@ -19,7 +19,6 @@ const stats = [
   { icon: Building2, value: "1000+", label: "PROPERTIES SOLD" },
   { icon: Users, value: "1,200+", label: "Happy Clients" },
   { icon: Award, value: "2023", label: "Incorporated" },
-  { icon: Globe, value: "25+", label: "Global Partners" },
 ];
 
 const Index = () => {
@@ -178,7 +177,7 @@ const Index = () => {
       <section className="py-20 lg:py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
         <div className="container mx-auto px-4 lg:px-8 relative">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
