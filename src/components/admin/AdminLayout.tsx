@@ -11,7 +11,8 @@ import {
   LogOut,
   Menu,
   X,
-  Home
+  Home,
+  Images
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
@@ -24,6 +25,7 @@ const navItems = [
   { icon: MessageSquare, label: "Enquiry Leads", path: "/admin/enquiry-leads" },
   { icon: Users, label: "Team", path: "/admin/team" },
   { icon: Star, label: "Testimonials", path: "/admin/testimonials" },
+  { icon: Images, label: "Gallery", path: "/admin/gallery" },
 ];
 
 interface AdminLayoutProps {
