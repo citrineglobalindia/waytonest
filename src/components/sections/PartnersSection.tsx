@@ -59,11 +59,11 @@ export const PartnersSection = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="relative bg-gray-50 border border-gray-200 rounded-xl p-6 h-28 flex items-center justify-center transition-all duration-300 hover:border-primary/30 hover:bg-white hover:shadow-lg hover:shadow-primary/5">
+              <div className="relative bg-gray-50 border border-gray-200 rounded-xl p-6 h-32 flex items-center justify-center transition-all duration-300 hover:border-primary/30 hover:bg-white hover:shadow-lg hover:shadow-primary/5">
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="max-h-16 max-w-full w-auto object-contain filter grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                  className="max-h-20 max-w-full w-auto object-contain filter grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
                 />
               </div>
             </motion.div>
