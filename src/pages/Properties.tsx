@@ -10,7 +10,7 @@ import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
 import { useProperties } from "@/hooks/useProperties";
 import { properties as mockProperties } from "@/data/mockData";
 
-const propertyTypes = ["All", "Villa", "Penthouse", "Apartment", "Mansion", "Loft"];
+const propertyTypes = ["All", "Apartment", "Villa", "Plot", "Penthouse", "Mansion", "Commercial"];
 
 const Properties = () => {
   const [searchQuery, setSearchQuery] = useState("");
