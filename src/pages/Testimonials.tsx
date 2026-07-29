@@ -49,6 +49,23 @@ const Testimonials = () => {
               Discover why discerning clients trust Way to Nest for their 
               luxury real estate needs.
             </p>
+
+            <a
+              href="https://www.google.com/maps/place/Way+To+Nest+Pvt+Ltd/@12.8814006,77.5440002,17z/data=!4m8!3m7!1s0x3bae15ecbcdf7d9f:0xf00d48cf0911134c!9m1!1b1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 mt-8 px-5 py-3 rounded-full glass border border-primary/30 hover:border-primary/60 transition-colors"
+            >
+              <span className="font-display text-2xl font-bold text-primary">4.9</span>
+              <span className="flex gap-0.5">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                ))}
+              </span>
+              <span className="text-sm text-muted-foreground">
+                39 Google reviews
+              </span>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -154,7 +171,9 @@ const Testimonials = () => {
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-primary/30"
+                      referrerPolicy="no-referrer"
+                      loading="lazy"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-primary/30 bg-secondary"
                     />
                     <div>
                       <div className="font-semibold text-foreground">{testimonial.name}</div>
