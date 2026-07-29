@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play, Building2, Users, Award, Globe, Star } from "lucide-react";
+import { ArrowRight, Play, Building2, Users, Award, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Seo } from "@/components/seo/Seo";
 import { Header } from "@/components/layout/Header";
