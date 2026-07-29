@@ -115,7 +115,7 @@ export const teamMembers: TeamMember[] = [
     name: "Srinivas Prabhu",
     role: "Co-Founder & Director",
     image: "/src/assets/team/srinivas-prabhu.jpeg",
-    bio: "Co-Founder & Director of Way To Nest Private Limited, driving the vision of helping clients find their dream homes.",
+    bio: "Srinivas Prabhu is the Co-Founder and Director of Way to Nest Pvt. Ltd. An MBA graduate with over 20 years of experience in the financial markets, he possesses deep expertise in share market trading, investment strategies, and wealth creation. His strong analytical approach and financial acumen enable him to provide clients with valuable insights for making informed investment decisions. With more than five years of experience in the real estate industry, Prabhu has developed an in-depth understanding of market trends, property valuation, pricing strategies, and customer requirements. He plays a key role in guiding clients through every stage of the buying and selling process by providing accurate market intelligence and strategic advice. Known for his integrity, professionalism, and commitment to excellence, Prabhu has earned the trust of clients and industry partners alike. His exceptional communication skills, client-centric approach, and unwavering dedication ensure every client receives a seamless and rewarding real estate experience. His passion for delivering value and building long-term relationships continues to drive the success and growth of Way to Nest.",
   },
   {
     id: "2",
