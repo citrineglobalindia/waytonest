@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { Seo } from "@/components/seo/Seo";
@@ -39,12 +40,16 @@ const contactInfo = [
 ];
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const service = searchParams.get("service");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: "",
+    message: service ? `I would like to know more about: ${service}` : "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   const createContactLead = useCreateContactLead();

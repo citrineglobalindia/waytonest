@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Home, Tag, KeyRound, FileSignature, TrendingUp, Check, ArrowRight, Phone } from "lucide-react";
 import { Seo } from "@/components/seo/Seo";
@@ -143,13 +144,11 @@ const Services = () => {
                       ))}
                     </ul>
 
-                    <Button
-                      variant="outline"
-                      className="mt-6"
-                      onClick={() => setIsLeadPopupOpen(true)}
-                    >
-                      Enquire About This
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                    <Button variant="outline" className="mt-6" asChild>
+                      <Link to={`/contact?service=${encodeURIComponent(service.title)}`}>
+                        Enquire About This
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
                     </Button>
                   </div>
                 </div>
