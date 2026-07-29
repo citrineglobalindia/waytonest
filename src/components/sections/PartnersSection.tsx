@@ -4,27 +4,23 @@ import { motion } from "framer-motion";
 import sobha from "@/assets/partners/sobha.png";
 import brigade from "@/assets/partners/brigade.png";
 import prestige from "@/assets/partners/prestige.png";
-import salarpuria from "@/assets/partners/salarpuria.png";
 import assetz from "@/assets/partners/assetz.png";
 import lodha from "@/assets/partners/lodha.png";
 import bhartiyaUrban from "@/assets/partners/bhartiya-urban.png";
 import mahindra from "@/assets/partners/mahindra.png";
-import mahaveer from "@/assets/partners/mahaveer.avif";
-import puravankara from "@/assets/partners/puravankara.avif";
 import provident from "@/assets/partners/provident.avif";
 import ltGroup from "@/assets/partners/lt-group.avif";
+import godrejAsset from "@/assets/partners/godrej.png.asset.json";
 
 const partners = [
   { name: "Sobha", logo: sobha },
   { name: "Brigade", logo: brigade },
   { name: "Prestige", logo: prestige },
-  { name: "Salarpuria", logo: salarpuria },
+  { name: "Godrej Properties", logo: godrejAsset.url },
   { name: "Assetz", logo: assetz },
   { name: "Lodha", logo: lodha },
   { name: "Bhartiya Urban", logo: bhartiyaUrban },
   { name: "Mahindra Lifespaces", logo: mahindra },
-  { name: "Mahaveer", logo: mahaveer },
-  { name: "Puravankara", logo: puravankara },
   { name: "Provident", logo: provident },
   { name: "L&T Group", logo: ltGroup },
 ];
